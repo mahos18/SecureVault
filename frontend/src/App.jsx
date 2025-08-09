@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Home from './Pages/Home'
-import Login from './Pages/Login'
-import Register from './Pages/Register'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RefreshHandler from './pages/utils/RefreshHandler'
