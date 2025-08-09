@@ -43,36 +43,7 @@
 
 **Deployment**  
 - **Frontend** → Vercel  
-- **Backend** → Render / Railway  
+- **Backend** → Vercel 
 
 ---
 
-## 📂 Folder Structure
-SecureVault/
-│
-├── backend/ # Node.js + Express API
-│ ├── controllers/
-│ ├── middleware/
-│ ├── models/
-│ └── routes/
-│
-├── frontend/ # React + Vite app
-│ ├── src/
-│ │ ├── components/
-│ │ ├── context/
-│ │ ├── pages/
-│ │ └── App.jsx
-│
-└── README.md
-
----
-
-## ⚡ Local Setup
-
-### 1️⃣ Clone Repo
-```bash
-git clone https://github.com/mahos18/SecureVault.git
-cd SecureVault
-
-cd backend
-npm install
