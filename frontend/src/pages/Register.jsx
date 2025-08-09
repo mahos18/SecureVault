@@ -33,7 +33,7 @@ const navigate= useNavigate();
     
     }
     try{
-      const url= 'http://localhost:8080/auth/register';
+      const url= process.env.BACKEND_URL+'/auth/register';
       const response= await fetch(url, {
         method: 'POST',
         headers: {

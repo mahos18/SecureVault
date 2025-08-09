@@ -33,7 +33,7 @@ const Login = () => {
     
     }
     try{
-      const url= 'http://localhost:8080/auth/login';
+      const url= process.env.BACKEND_URL+'/auth/login';
       const response= await fetch(url, {
         method: 'POST',
         headers: {
@@ -72,7 +72,7 @@ const Login = () => {
     if (!email) return handleError('Please enter your email.');
 
     try {
-      const response = await fetch('http://localhost:8080/auth/forgot-password', {
+      const response = await fetch(process.env.BACKEND_URL+'/auth/forgot-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })

@@ -21,7 +21,7 @@ const PopupForm = ({ type, onClose,userid }) => {
   const handleFormSubmit = async(formData) => {
 
     // Example: Send to backend
-    const response =await fetch("http://localhost:8080/home/add_data", {
+    const response =await fetch("process.env.BACKEND_URL/home/add_data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

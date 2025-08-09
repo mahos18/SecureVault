@@ -24,7 +24,7 @@ export default function MyVault() {
   useEffect(() => {
     if (userId) {
       axios
-        .get(`http://localhost:8080/home/${userId}`)
+        .get(process.env.BACKEND_URL+`/home/${userId}`)
         .then((res) => {
           if (res.data.success) {
             const decrypted = res.data.vault.map((item) => ({
@@ -51,7 +51,7 @@ const handleDelete = async (vaultId) => {
   setTimeout(async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:8080/home/${vaultId}`, {
+      await axios.delete(process.env.BACKEND_URL+`/home/${vaultId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
