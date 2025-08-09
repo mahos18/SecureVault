@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { handleError, handleSuccess } from './utils/Toasts';
 import { useNavigate } from 'react-router-dom';
 import DarkVeil from './components/DarkVeil';
+import { useApi } from "@/context/ApiContext";
 
 
 const Login = () => {
@@ -24,6 +25,8 @@ const Login = () => {
 
   };
   const navigate= useNavigate();
+  const  {backend_url}  = useApi();
+  console.log(backend_url)
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +36,8 @@ const Login = () => {
     
     }
     try{
-      const url= process.env.BACKEND_URL+'/auth/login';
+      const url= backend_url+'/auth/login';
+      console.log(url)
       const response= await fetch(url, {
         method: 'POST',
         headers: {
@@ -72,7 +76,7 @@ const Login = () => {
     if (!email) return handleError('Please enter your email.');
 
     try {
-      const response = await fetch(process.env.BACKEND_URL+'/auth/forgot-password', {
+      const response = await fetch(backend_url+'/auth/forgot-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })

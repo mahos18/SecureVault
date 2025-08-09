@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { handleError,handleSuccess } from "../utils/Toasts";
+import { useApi } from "@/context/ApiContext";
 
 const PopupForm = ({ type, onClose,userid }) => {
   const [title, setTitle] = useState("");
   const [data, setData] = useState("");
   const user_id=userid
+  const { backend_url } = useApi();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const PopupForm = ({ type, onClose,userid }) => {
   const handleFormSubmit = async(formData) => {
 
     // Example: Send to backend
-    const response =await fetch("process.env.BACKEND_URL/home/add_data", {
+    const response =await fetch(`${backend_url}/home/add_data`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

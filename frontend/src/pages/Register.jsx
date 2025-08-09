@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { handleError,handleSuccess } from './utils/Toasts';
 import { useNavigate } from 'react-router-dom';
 import DarkVeil from './components/DarkVeil';
+import { useApi } from '@/context/ApiContext';
 
 
 const Register = () => {
@@ -24,7 +25,7 @@ const Register = () => {
 
   };
 const navigate= useNavigate();
-
+const { backend_url } = useApi();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = userinfo;
@@ -33,7 +34,7 @@ const navigate= useNavigate();
     
     }
     try{
-      const url= process.env.BACKEND_URL+'/auth/register';
+      const url= backend_url+'/auth/register';
       const response= await fetch(url, {
         method: 'POST',
         headers: {

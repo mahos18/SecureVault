@@ -6,6 +6,7 @@ import SpotlightCard from './ui-components/SpotlightCard'
 import DotGrid from './ui-components/DotGrid'
 import Footer from "./Footer";
 import { handleSuccess } from "./utils/Toasts";
+import { useApi } from "@/context/ApiContext";
 
 export default function MyVault() {
   const [vaultItems, setVaultItems] = useState([]);
@@ -20,11 +21,15 @@ export default function MyVault() {
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.user_id;
   const aesKey = user?.aes_key;
+  const { backend_url } = useApi();
 
   useEffect(() => {
+    
     if (userId) {
+      const url=`${backend_url}/home/${userId}`
+      console.log(url)
       axios
-        .get(process.env.BACKEND_URL+`/home/${userId}`)
+        .get(url)
         .then((res) => {
           if (res.data.success) {
             const decrypted = res.data.vault.map((item) => ({
@@ -51,7 +56,7 @@ const handleDelete = async (vaultId) => {
   setTimeout(async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(process.env.BACKEND_URL+`/home/${vaultId}`, {
+      await axios.delete(`${backend_url}/home/${vaultId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
