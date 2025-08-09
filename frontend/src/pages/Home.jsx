@@ -55,7 +55,7 @@ function Home ()  {
     handleSuccess('Logged out successfully');
     setCurrUser(null);
     setTimeout(() => {
-      navigate('/landing')
+      navigate('/')
     },1000)
   };
   // handle data

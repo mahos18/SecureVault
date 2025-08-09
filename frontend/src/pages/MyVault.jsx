@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import { handleSuccess } from "./utils/Toasts";
 import { useApi } from "@/context/ApiContext";
 import { Link } from "react-router-dom";
+import { useCallback } from "react";
 
 export default function MyVault() {
   const [vaultItems, setVaultItems] = useState([]);
@@ -75,15 +76,16 @@ const handleDelete = async (vaultId) => {
 };
 
 
-    const handleLogout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
-    handleSuccess('Logged out successfully');
-    setCurrUser(null);
-    setTimeout(() => {
-      navigate('/landing')
-    },1000)
-  };
+const handleLogout = useCallback(() => {
+  // Clear stored data
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  handleSuccess("Logged out successfully");
+  setCurrUser(null);
+  setTimeout(() => {
+    navigate("/", { replace: true });
+  }, 1000);
+}, [navigate, setCurrUser]);
   const [visibleItems, setVisibleItems] = useState({}); 
 
   const toggleVisibility = (id) => {

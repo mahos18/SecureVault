@@ -29,7 +29,6 @@ function App() {
         <Route path="/register" element={<Register/>} />
         <Route path="/home" element={<PrivateRoute element={<Home/>}/>} />
         <Route path="/my_vault" element={<MyVault/>} />
-
       </Routes>
       <ToastContainer />
     </>
