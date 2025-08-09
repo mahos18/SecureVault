@@ -6,6 +6,7 @@ import DecryptedText from './ui-components/DecryptedText'
 import SpotlightCard from './ui-components/SpotlightCard'
 import Section2 from './Section2'
 import Footer from './Footer'
+import { Link } from "react-router-dom";
 
 
 
@@ -53,11 +54,11 @@ export default function Landing() {
                 <p className="pt-6 text-2xl flex ">Store passwords, links, and notes — safely and seamlessly.</p>
                 <p className="pt-1  hidden text-xl text-gray-200 lg:block">No more forgotten credentials or scattered notes.</p>
                 </ScrambledText>
-               <a href="/login"className="text-white text-lg font-semibold mt-10 lg:mt-1">
+               <Link to="/login"className="text-white text-lg font-semibold mt-10 lg:mt-1">
                 <SpotlightCard className="custom-spotlight-card h-6 w-40 m-0 flex justify-center items-center " spotlightColor="rgba(173, 30, 154, 0.38)">
                     Get Started
                 </SpotlightCard>
-                </a>
+                </Link>
                 
             </div>
         </div> 

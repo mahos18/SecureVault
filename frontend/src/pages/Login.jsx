@@ -4,6 +4,7 @@ import { handleError, handleSuccess } from './utils/Toasts';
 import { useNavigate } from 'react-router-dom';
 import DarkVeil from './components/DarkVeil';
 import { useApi } from "@/context/ApiContext";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -149,7 +150,7 @@ const Login = () => {
 
             {!isForgotPasswordMode && (
               <p className='mt-2 text-center text-purple-300'>
-                Don't have an account? <a href='/register' className='text-purple-400 hover:underline'>Register</a>
+                Don't have an account? <Link to='/register' className='text-purple-400 hover:underline'>Register</Link>
               </p>
             )}
           </div>

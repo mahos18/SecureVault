@@ -9,6 +9,7 @@ import DotGrid from './ui-components/DotGrid'
 import Lottie from 'lottie-react';
 import Person from './assets/Login.json'
 import Footer from './Footer'
+import { Link } from "react-router-dom";
 import { X } from 'lucide-react'
 
 
@@ -114,7 +115,7 @@ function Home ()  {
           </div>
           <div className="navbar-center hidden lg:flex flex-row w-full justify-end  items-center">
             <ul className="menu menu-horizontal flex gap-10 p-0">
-              <li><a href="/my_vault">Go to Vault</a></li>
+              <li><Link to="/my_vault">Go to Vault</Link></li>
                 
             </ul>
           </div>

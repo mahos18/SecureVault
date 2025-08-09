@@ -4,6 +4,7 @@ import { handleError,handleSuccess } from './utils/Toasts';
 import { useNavigate } from 'react-router-dom';
 import DarkVeil from './components/DarkVeil';
 import { useApi } from '@/context/ApiContext';
+import { Link } from "react-router-dom";
 
 
 const Register = () => {
@@ -96,7 +97,7 @@ const { backend_url } = useApi();
               <label className='block text-white m-1 text-xl' htmlFor='password'>Password</label>
               <input onChange={handleChange} className='w-full p-2 border border-purple-300  text-white rounded'  name='password' type='password' id='password' placeholder='Enter your password' /> 
             <button className=' mt-2 w-60 bg-purple-700 text-white p-2 m-2 rounded hover:bg-purple-600 transition duration-200' type='submit'>Register</button>
-            <p className='mt-1 text-center text-white'>Already Have Account <a href='/login' className='text-purple-400 hover:underline'>Login</a></p>
+            <p className='mt-1 text-center text-white'>Already Have Account <Link to='/login' className='text-purple-400 hover:underline'>Login</Link></p>
             
              
             </div>

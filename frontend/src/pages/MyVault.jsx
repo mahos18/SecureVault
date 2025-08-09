@@ -7,6 +7,7 @@ import DotGrid from './ui-components/DotGrid'
 import Footer from "./Footer";
 import { handleSuccess } from "./utils/Toasts";
 import { useApi } from "@/context/ApiContext";
+import { Link } from "react-router-dom";
 
 export default function MyVault() {
   const [vaultItems, setVaultItems] = useState([]);
@@ -150,7 +151,7 @@ const handleDelete = async (vaultId) => {
           </div>
           <div className="navbar-center hidden lg:flex flex-row w-full justify-end  items-center">
             <ul className="menu menu-horizontal flex gap-10 p-0">
-              <li><a href="/home">Dashboard</a></li>
+              <li><Link to="/home">Dashboard</Link></li>
                 
             </ul>
           </div>
