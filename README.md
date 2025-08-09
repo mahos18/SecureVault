@@ -1,148 +1,78 @@
-﻿📦 SecureVault
-Your Personal Digital Safe — Encrypted, Secure, and Accessible Anywhere.
-Store passwords, notes, and other sensitive data with AES encryption and access them from any device.
+# 📦 SecureVault
 
+> **Your Personal Digital Safe — Encrypted, Secure, and Accessible Anywhere.**  
+> Store passwords, notes, and other sensitive data with AES encryption and access them from any device.
 
+![Vercel Deploy](https://img.shields.io/badge/Frontend-Vercel-black?style=flat-square&logo=vercel)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-green?style=flat-square&logo=node.js)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen?style=flat-square&logo=mongodb)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
+---
 
+## ✨ Features
+- 🔒 **AES-256 Encryption** – All vault data is encrypted before storage.  
+- 🗂 **Organized Vault** – Store passwords, links, and notes.  
+- 📄 **Copy to Clipboard** – Instantly copy decrypted data.  
+- 📝 **Edit & Delete** – Manage vault items easily.  
+- 🎨 **Responsive UI** – TailwindCSS + smooth animations.  
+- 🔑 **JWT Auth** – Secure login/register.  
+- 🌍 **Cross-Platform** – Access from anywhere.
 
-✨ Features
-🔒 AES-256 Encryption – All vault data is encrypted before storage.
+---
 
-🗂 Organized Vault – Store passwords, links, and notes.
+## 🎥 Preview
+> *(Replace with your GIF or screenshot collage)*  
+![App Preview](https://via.placeholder.com/900x450?text=SecureVault+Preview)
 
-📄 Copy to Clipboard – Instantly copy decrypted data.
+---
 
-📝 Edit & Delete – Manage vault items easily.
+## 🛠 Tech Stack
 
-🎨 Responsive UI – TailwindCSS + smooth animations.
+**Frontend**  
+- React (Vite) ⚡  
+- Tailwind CSS 🎨  
+- Axios 🌐  
 
-🔑 JWT Auth – Secure login/register.
+**Backend**  
+- Node.js 🚀  
+- Express.js 🌉  
+- MongoDB + Mongoose 🍃  
+- CryptoJS (AES Encryption) 🔐  
+- JWT Authentication 🛡  
 
-🌍 Cross-Platform – Access from anywhere.
+**Deployment**  
+- **Frontend** → Vercel  
+- **Backend** → Render / Railway  
 
-🎥 Preview
-(Replace with your GIF or screenshot collage)
+---
 
-🛠 Tech Stack
-Frontend
-
-React (Vite) ⚡
-
-Tailwind CSS 🎨
-
-Axios 🌐
-
-Backend
-
-Node.js 🚀
-
-Express.js 🌉
-
-MongoDB + Mongoose 🍃
-
-CryptoJS (AES Encryption) 🔐
-
-JWT Authentication 🛡
-
-Deployment
-
-Frontend → Vercel
-
-Backend → Render / Railway
-
-📂 Folder Structure
-bash
-Copy
-Edit
+## 📂 Folder Structure
 SecureVault/
 │
-├── backend/          # Node.js + Express API
-│   ├── controllers/  
-│   ├── middleware/   
-│   ├── models/       
-│   └── routes/       
+├── backend/ # Node.js + Express API
+│ ├── controllers/
+│ ├── middleware/
+│ ├── models/
+│ └── routes/
 │
-├── frontend/         # React + Vite app
-│   ├── src/          
-│   │   ├── components/
-│   │   ├── context/
-│   │   ├── pages/
-│   │   └── App.jsx
+├── frontend/ # React + Vite app
+│ ├── src/
+│ │ ├── components/
+│ │ ├── context/
+│ │ ├── pages/
+│ │ └── App.jsx
 │
 └── README.md
-⚡ Local Setup
-1️⃣ Clone Repo
-bash
-Copy
-Edit
+
+---
+
+## ⚡ Local Setup
+
+### 1️⃣ Clone Repo
+```bash
 git clone https://github.com/mahos18/SecureVault.git
 cd SecureVault
-2️⃣ Setup Backend
-bash
-Copy
-Edit
+
 cd backend
 npm install
-Create .env:
-
-env
-Copy
-Edit
-PORT=8080
-MONGO_URI=your_mongo_connection
-JWT_SECRET=your_secret
-Run:
-
-bash
-Copy
-Edit
-npm start
-3️⃣ Setup Frontend
-bash
-Copy
-Edit
-cd frontend
-npm install
-Create .env:
-
-env
-Copy
-Edit
-VITE_API_URL=http://localhost:8080
-Run:
-
-bash
-Copy
-Edit
-npm run dev
-🚀 Deployment
-Frontend → Vercel
-Push your frontend folder to GitHub.
-
-Go to Vercel, import repo.
-
-Set VITE_API_URL in Environment Variables to your backend deployed URL.
-
-Deploy.
-
-Backend → Render
-Push your backend folder to GitHub.
-
-Go to Render, create a Web Service.
-
-Set MONGO_URI and JWT_SECRET in Environment Variables.
-
-Deploy.
-
-🔐 API Routes
-Method	Endpoint	Description
-POST	/add_data	Add encrypted vault item
-GET	/:user_id	Fetch vault items
-PUT	/:vault_id	Update vault item
-DELETE	/:vault_id	Delete vault item
-
-📜 License
-MIT License © 2025 Soham
-
-
