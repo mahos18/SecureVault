@@ -8,7 +8,7 @@ import SplitText from './ui-components/SplitText'
 import DotGrid from './ui-components/DotGrid'
 import Lottie from 'lottie-react';
 import Person from './assets/Login.json'
-import Footer from './footer'
+import Footer from './Footer'
 import { X } from 'lucide-react'
 
 
