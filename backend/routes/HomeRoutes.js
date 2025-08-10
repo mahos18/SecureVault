@@ -16,7 +16,4 @@ router.get('/:user_id',  getUserVault);
 // Delete vault item (by vault_id)
 router.delete('/:vault_id',  deleteVaultItem);
 
-// Update vault item (by vault_id)
-router.put('/:vault_id',  updateVaultItem);
-
 module.exports = router;

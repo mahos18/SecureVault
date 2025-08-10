@@ -11,6 +11,9 @@ const PORT =process.env.PORT || 8080;
 app.get('/',(req,res)=>{
     res.send("Hello world")
 }) 
+app.get('/lgin',(req,res)=>{
+    res.send("Hello login")
+}) 
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/auth',authRouter );
