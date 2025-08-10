@@ -1,6 +1,6 @@
 import React from 'react'
 import PopupForm from './components/PopupForm'
-import { useNavigate } from 'react-router-dom'
+import { replace, useNavigate } from 'react-router-dom'
 import { handleSuccess,handleError } from './utils/Toasts'
 import SpotlightCard from './ui-components/SpotlightCard'
 import { useState,useEffect ,useRef} from 'react'
@@ -10,7 +10,10 @@ import Lottie from 'lottie-react';
 import Person from './assets/Login.json'
 import Footer from './Footer'
 import { Link } from "react-router-dom";
+import { useCallback } from "react";
+
 import { X } from 'lucide-react'
+
 
 
 
@@ -49,15 +52,15 @@ function Home ()  {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showLogoutPopup]);
 
-    const handleLogout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
-    handleSuccess('Logged out successfully');
-    setCurrUser(null);
-    setTimeout(() => {
-      navigate('/')
-    },1000)
-  };
+    const handleLogout = useCallback(() => {
+      // Clear stored data
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      handleSuccess("Logged out successfully");
+      setTimeout(() => {
+        navigate("/", { replace: true });
+      }, 1000);
+    }, [navigate]);
   // handle data
   const [showPopup, setShowPopup] = useState(false);
   const [formType, setFormType] = useState("");

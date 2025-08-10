@@ -172,14 +172,14 @@ const handleLogout = useCallback(() => {
 
 
 
-      <div className="p-4 text-white w-full relative min-h-100 flex flex-col items-center  z-10 mt-5">
+      <div className="p-4 text-white w-full relative min-h-135 lg:min-h-135 flex flex-col items-center  z-10 mt-5">
       <div className="header w-full  flex items-center mb-2 justify-around lg:justify-center">
         <h2 className="text-2xl font-bold mb-4 text-white">My Vault</h2>
         <h2 className="text-2xl font-bold mb-4 text-white flex lg:hidden underline cursor-pointer" href='/home'><a href="/home">Dashboard</a></h2>
         
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-3/4">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-3/4 ">
         
         {vaultItems.map((item) => (
           <SpotlightCard key={item._id}
@@ -193,7 +193,7 @@ const handleLogout = useCallback(() => {
 
             {/* Show hidden or decrypted data */}
             <p className="mt-2 break-words">
-              {visibleItems[item._id] ? item.decryptedData : "••••••••••••••••"}
+              {visibleItems[item._id] ? item.decryptedData : "$%^#@**(!)"}
             </p>
 
             <div className="flex gap-2 mt-3">
