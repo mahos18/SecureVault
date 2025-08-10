@@ -7,5 +7,5 @@ const userSchema = new schemna({
     password: { type: String, required: true },
     key:{ type: String, required: true }
 });
-const UserModel = mongoose.model('Users', userSchema); 
+const UserModel = mongoose.model('users', userSchema); 
 module.exports = UserModel;      
