@@ -3,10 +3,6 @@
 > **Your Personal Digital Safe — Encrypted, Secure, and Accessible Anywhere.**  
 > Store passwords, notes, and other sensitive data with AES encryption and access them from any device.
 
-![Vercel Deploy](https://img.shields.io/badge/Frontend-Vercel-black?style=flat-square&logo=vercel)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-green?style=flat-square&logo=node.js)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen?style=flat-square&logo=mongodb)
-![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
 ---
 
@@ -53,5 +49,6 @@
 - **Backend** → Vercel 
 
 ---
+
 
 
