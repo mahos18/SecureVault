@@ -6,7 +6,7 @@ const ApiContext = createContext();
 // Provider Component
 export const ApiProvider = ({ children }) => {
   // You can switch between local and deployed URLs easily
-  const backend_url = "http://localhost:8080";
+  const backend_url = "https://secure-vault-topaz.vercel.app";
 
   return (
     <ApiContext.Provider value={{ backend_url }}>
