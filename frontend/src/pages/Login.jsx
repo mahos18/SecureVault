@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import DarkVeil from './components/DarkVeil';
 import { useApi } from "@/context/ApiContext";
 import { Link } from "react-router-dom";
+import { LoaderCircle } from 'lucide-react'
 
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
     email: '',
     password: ''
   });
+  const [Loading,setLoading]=useState(false)
   const [isForgotPasswordMode, setIsForgotPasswordMode] = useState(false);
 
 
@@ -31,11 +33,13 @@ const Login = () => {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    
     const { email, password } = Logininfo;
     if (!email || !password) {
       return handleError('Please fill all the fields');
     
     }
+    setLoading(true);
     try{
       const url= backend_url+'/auth/login';
       console.log(url)
@@ -66,6 +70,8 @@ const Login = () => {
           handleError(err)
 
         }
+    }finally{
+      setLoading(false)
     }
 
   };
@@ -128,7 +134,18 @@ const Login = () => {
               <input onChange={handleChange} className='w-full p-2 border border-purple-300  text-white rounded' type='password' name="password"id='password' placeholder='Enter your password' /> 
               </>)}
             
-            <button className='w-60 bg-purple-700 text-white p-2 m-2 rounded hover:bg-purple-600 transition duration-200' type='submit'> {isForgotPasswordMode ? 'Send Reset Email' : 'Login'}</button>
+            {/* <button className='w-60 bg-purple-700 text-white p-2 m-2 rounded hover:bg-purple-600 transition duration-200' type='submit'> {isForgotPasswordMode ? 'Send Reset Email' : 'Login'}</button> */}
+
+              {
+                Loading ? (
+                    <button className='w-60 bg-purple-700 text-white p-2 m-2 rounded hover:bg-purple-600 transition duration-200 flex items-center justify-center text-xl font-semibold'>
+                        <LoaderCircle className='mr-2 h-6 w-6 animate-spin' />
+                        Please wait
+                    </button>
+                ) : (
+                    <button type="submit" className='w-60 bg-purple-700 text-white text-xl font-semibold p-2 m-2 rounded hover:bg-purple-600 transition duration-200'>Login</button>
+                )
+            }
             
               {/* {!isForgotPasswordMode && (
               <p className='mt-2 text-center text-purple-300 cursor-pointer hover:underline hover:text-purple-400' onClick={() => {

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import DarkVeil from './components/DarkVeil';
 import { useApi } from '@/context/ApiContext';
 import { Link } from "react-router-dom";
+import { LoaderCircle } from 'lucide-react'
 
 
 const Register = () => {
@@ -14,6 +15,7 @@ const Register = () => {
     email: '',
     password: ''
   });
+  const [Loading,setLoading]=useState(false)
 
 
   const handleChange = (e) => {
@@ -27,13 +29,16 @@ const Register = () => {
   };
 const navigate= useNavigate();
 const { backend_url } = useApi();
-  const handleSubmit = async (e) => {
+
+
+const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = userinfo;
     if (!name || !email || !password) {
       return handleError('Please fill all the fields');
     
     }
+    setLoading(true);
     try{
       const url= backend_url+'/auth/register';
       const response= await fetch(url, {
@@ -70,6 +75,8 @@ const { backend_url } = useApi();
         handleError(err)
 
     }
+  }finally{
+    setLoading(false)
   }
 
 
@@ -96,7 +103,19 @@ const { backend_url } = useApi();
               <input onChange={handleChange} className='w-full p-2 border border-purple-300 text-white rounded'  name='email' type='email' id='email' placeholder='Enter your email' />
               <label className='block text-white m-1 text-xl' htmlFor='password'>Password</label>
               <input onChange={handleChange} className='w-full p-2 border border-purple-300  text-white rounded'  name='password' type='password' id='password' placeholder='Enter your password' /> 
-            <button className=' mt-2 w-60 bg-purple-700 text-white p-2 m-2 rounded hover:bg-purple-600 transition duration-200' type='submit'>Register</button>
+            {/* <button className=' mt-2 w-60 bg-purple-700 text-white p-2 m-2 rounded hover:bg-purple-600 transition duration-200' type='submit'>Register</button> */}
+
+
+          {
+              Loading ? (
+                  <button className='w-60 bg-purple-700 text-white p-2 m-2 rounded hover:bg-purple-600 transition duration-200 flex items-center justify-center text-xl font-semibold'>
+                      <LoaderCircle className='mr-2 h-6 w-6 animate-spin' />
+                      Please wait
+                  </button>
+              ) : (
+                  <button type="submit" className='w-60 bg-purple-700 text-white text-xl font-semibold p-2 m-2 rounded hover:bg-purple-600 transition duration-200'>Register</button>
+              )
+          }
             <p className='mt-1 text-center text-white'>Already Have Account <Link to='/login' className='text-purple-400 hover:underline'>Login</Link></p>
             
              
